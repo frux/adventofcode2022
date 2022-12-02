@@ -6,13 +6,13 @@ enum class ShapeType(val score: Int) {
     SCISSORS(3)
 }
 
-class Shape(code: String) {
-    var type: ShapeType = when (code) {
+class Shape(val type: ShapeType) {
+    constructor(code: String): this(when (code) {
         "A", "X" -> ShapeType.ROCK
         "B", "Y" -> ShapeType.PAPER
         "C", "Z" -> ShapeType.SCISSORS
         else -> throw Error("Unknown shape code $code")
-    }
+    })
 
     fun getScore() = type.score
 
