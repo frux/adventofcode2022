@@ -7,4 +7,6 @@ class CratesStack(private var crates: Stack<Char> = Stack()) {
     fun put(crate: Char) = crates.push(crate)
 
     fun getCrates() = crates.toList()
+
+    fun isEmpty() = crates.empty()
 }
