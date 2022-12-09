@@ -2,8 +2,8 @@ import answer.Answer
 import days.day9.Rope
 import input.InputReader
 
-val input = InputReader(day = 9, part = 1).getLines()
-val rope = Rope(length = 2)
+val input = InputReader(day = 9, part = 2).getLines()
+val rope = Rope(length = 10)
 
 for (line in input) {
     val (direction, distance) = line.split(" ")
