@@ -4,8 +4,9 @@ import days.day11.Monkey
 import days.day11.Operation
 import input.InputReader
 
-val input = InputReader(day = 11, part = 1).getLines()
+val input = InputReader(day = 11, part = 2).getLines()
 val monkeys = mutableListOf<Monkey>()
+var simplicityFactor = 1
 
 for (i in input.indices step 7) {
     val itemsInput = input[i + 1].substring(18).split(", ")
@@ -25,12 +26,13 @@ for (i in input.indices step 7) {
         falsyMonkey = falsyMonkeyInput.toInt(),
     )
     monkeys.add(monkey)
+    simplicityFactor *= testFactorInput.toInt()
 }
 
-for (round in 0 until 20) {
+for (round in 0 until 10000) {
     for (monkey in monkeys) {
         while (monkey.items.isNotEmpty()) {
-            monkey.inspect()
+            monkey.inspectWithoutRelief(simplicityFactor)
             val nextMonkeyIndex = monkey.test()
             val item = monkey.throwItem()
 
@@ -42,4 +44,4 @@ for (round in 0 until 20) {
 val inspectionCountComparator = Comparator { monkey1: Monkey, monkey2: Monkey -> monkey2.inspectionCount - monkey1.inspectionCount }
 monkeys.sortWith(inspectionCountComparator)
 
-Answer(monkeys[0].inspectionCount * monkeys[1].inspectionCount)
+Answer(monkeys[0].inspectionCount.toLong() * monkeys[1].inspectionCount.toLong())

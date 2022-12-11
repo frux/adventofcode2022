@@ -15,8 +15,13 @@ class Monkey(
         inspectionCount += 1
     }
 
+    fun inspectWithoutRelief(simplicityFactor: Int) {
+        items[0].worry = operation.calculate(items[0].worry) % simplicityFactor
+        inspectionCount += 1
+    }
+
     fun test(): Int {
-        return if (items[0].worry % testFactor == 0) truthyMonkey else falsyMonkey
+        return if (items[0].worry % testFactor == 0L) truthyMonkey else falsyMonkey
     }
 
     fun throwItem() = items.removeFirst()
