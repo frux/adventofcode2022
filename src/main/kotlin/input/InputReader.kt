@@ -15,4 +15,6 @@ class InputReader(day: Number, part: Number) {
     fun getNumbers() = getLines().map { it.toInt() }
 
     fun getChars() = getLines()[0].toList()
+
+    fun getCharMatrix() = getLines().map { it.toList() }
 }
