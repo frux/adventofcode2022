@@ -14,6 +14,7 @@ repositories {
 dependencies {
     testImplementation(kotlin("test"))
     implementation(kotlin("script-runtime"))
+    implementation("com.google.code.gson:gson:2.10")
 }
 
 tasks.test {
